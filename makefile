@@ -1,7 +1,6 @@
 #Linux make file, don't use this on windows. Maybe it works on a Mac.
 VIRTUALENV = $(shell which virtualenv)
 
-
 start:
 	#Make sure you are under virtualenv
 	. backend/env/bin/activate

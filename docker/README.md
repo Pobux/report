@@ -1,3 +1,5 @@
+just `docker-compose up`
+
 Tuto
 ====
 Best way to learn : https://training.play-with-docker.com/swarm-mode-intro/

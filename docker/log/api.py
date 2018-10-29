@@ -4,7 +4,6 @@ import json
 
 app = Flask(__name__)
 
-
 #Affiche la liste de tous les logs disponibles
 @app.route('/log', methods=['GET'])
 def get():
@@ -32,6 +31,5 @@ def api_id():
 
     return jsonify(results)
 
-
 if __name__ == '__main__':
-    app.run(port='5002')
+    app.run(port='6001')
