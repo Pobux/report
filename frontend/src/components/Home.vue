@@ -25,7 +25,7 @@ export default {
             this.log = this.getLogFromBackend()
         },
         getLogFromBackend() {
-            const path = `http://localhost:5000/api/log`
+            const path = `http://localhost:5000/log`
             axios.get(path).then(response => {
                 this.logs = response.data.logs
             }).catch(error => {
