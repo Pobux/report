@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1360031010,
+    "date": "2018-11-03",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  },
+  {
+    "id": 1360031222,
+    "date": "2018-11-07",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  },
+  {
+    "id": 1360031425,
+    "date": "2018-11-11",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  },
+  {
+    "id": 1360031625,
+    "date": "2018-11-12",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  },
+  {
+    "id": 1360031325,
+    "date": "2018-11-13",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  },
+  {
+    "id": 1360031225,
+    "date": "2018-11-14",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  },
+  {
+    "id": 1360031202,
+    "date": "2018-11-15",
+    "logs" : [
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is valid from [2018-10-03] to [2018-10-04]",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Server key fingerprint is DCA8:D3C8:9E5D:8A10:D925:CF1F:D8CE:8FE4:21FB:9574:6189:718D:A05F:7EBE:A7AB:DX6E",
+            "Oct  3 10:12:04 vertchapeau dnscrypt-proxy[2437]: Wed Oct  3 10:12:04 2018 [INFO] Chosen certificate #1534574301 is invalid"
+        ]
+  }
+]

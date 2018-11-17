@@ -4,3 +4,6 @@ backend/env
 frontend/node_modules
 frontend/build
 __pycache__
+.idea/
+venv/
+
