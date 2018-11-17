@@ -1,6 +1,18 @@
-tuto
-====
-https://codeburst.io/full-stack-single-page-application-with-vue-js-and-flask-b1e036315532
+Installation
+============
+
+Installation python3
+--------------------
+- Avoir `virtualenv` 
+    - Créer l'environnement virtuel sous `report`, `virtualenv -p python3 venv`
+    - Entrer dans l'environnement virtuel, `source venv/bin/activate`
+    - Installer les dépendances `pip install -r requirements.txt`
+
+Installation docker
+-------------------
+- Suivre la documentation de docker qui est très bien faite selon votre OS.
+- Installer docker-compose
+
 
 Client side
 ===========

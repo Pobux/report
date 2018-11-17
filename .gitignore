@@ -6,4 +6,4 @@ frontend/build
 __pycache__
 .idea/
 venv/
-
+venv/*

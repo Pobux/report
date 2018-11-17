@@ -1,11 +1,4 @@
-just `docker-compose up`
-
-Tuto
-====
-Best way to learn : https://training.play-with-docker.com/swarm-mode-intro/
-Installation : https://linuxconfig.org/how-to-install-docker-on-ubuntu-18-04-bionic-beaver
-Docker swarm : https://sysadmins.co.za/setup-a-3-node-docker-swarm-on-ubuntu-16/
-Docker machine (gestion des hosts) : https://docs.docker.com/machine/install-machine/#install-machine-directly
+Just `sudo docker-compose up` here
 
 Docker
 ======
