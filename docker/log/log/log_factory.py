@@ -6,16 +6,18 @@ import sys
 
 
 class LogFactory():
-    PACKAGE = "log"
+    PACKAGE = "log.log"
 
     def __init__(self):
         pass
 
     def create_log(self, log_name, behavior):
+        #return log_name + behavior
         try:
-            class_name = self.instantiate_class(log_name)
-            behavior_name = self.create_behavior(behavior)
-            return class_name + behavior_name
+            log = self.instantiate_class(log_name)
+            # log = self.create_behavior(behavior)
+            return log
+
 
         except ImportError as e:
             print("Had import error with : %s".format(log_name))
@@ -28,7 +30,7 @@ class LogFactory():
         return self.instantiate_class(behavior)
 
     def instantiate_class(self, log_name):
-        module = importlib.import_module(self.PACKAGE + "." + log_name)
+        module = importlib.import_module(self.PACKAGE)
         class_name = self._parse_class_name(log_name)
         class_ = getattr(module, class_name)
         return class_()
