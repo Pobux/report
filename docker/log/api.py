@@ -1,11 +1,6 @@
-#from docker.log.log.log_factory import LogFactory
 from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
-
-#from log import log, log_factory, root_dir, nice_json
-
 from log import log, log_factory, nice_json
-
 import json
 
 app = Flask(__name__)

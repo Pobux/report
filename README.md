@@ -13,7 +13,6 @@ Installation docker
 - Suivre la documentation de docker qui est très bien faite selon votre OS.
 - Installer docker-compose
 
-
 Client side
 ===========
 Uses vue.js

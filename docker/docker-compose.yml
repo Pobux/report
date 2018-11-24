@@ -6,41 +6,26 @@ services:
             - "5000:8080"
         links:
             - log:logservice
+            - rabbit:rabbit
+
     log:
         build: log
 
-    rabbit_node_1:
-      environment:
-        - RABBITMQ_ERLANG_COOKIE='secret_cookie'
-      hostname: rabbit_node_1
-      image: "rabbitmq:3-management"
-      ports:
-        - "15672:15672"
-        - "5672:5672"
-      tty: true
-      volumes:
-        - rabbit1:/var/lib/rabbitmq
-        - .rabbit/conf/:/etc/rabbitmq/
-      command:  bash -c "sleep 10; rabbitmq-server;"
-    rabbit_node_2:
-      environment:
-        - RABBITMQ_ERLANG_COOKIE='secret_cookie'
-      hostname: rabbit_node_2
-      depends_on:
-        - rabbit_node_1
-      image: "rabbitmq:3-management"
-      ports:
-        - "15673:15672"
-        - "5673:5672"
-      tty: true
-      volumes:
-        - rabbit2:/var/lib/rabbitmq
-        - .rabbit/conf/:/etc/rabbitmq/
-      command:  bash -c "sleep 10; rabbitmq-server;"
+    rabbit:
+        hostname: rabbit
+        environment:
+            - RABBITMQ_ERLANG_COOKIE='secret_cookie'
+        image: "rabbitmq:3-management"
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+        tty: true
+        volumes:
+            # - rabbit:/var/lib/rabbitmq
+            - ./rabbit/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
+        command:  bash -c "sleep 10; rabbitmq-server;"
 
 #Persistent data, stored in docker/volumes locally
 volumes:
-    rabbit1:
-        driver: local
-    rabbit2:
+    rabbit:
         driver: local
