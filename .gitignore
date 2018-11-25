@@ -7,5 +7,7 @@ __pycache__
 .idea/
 venv/
 venv/*
+*venv*
 .erlang.cookie
 .rabbit
+

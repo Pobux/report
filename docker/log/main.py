@@ -5,5 +5,3 @@ from log import receiver
 
 messenger = receiver.Receiver("localhost", "log_queue", 5672)
 messenger.consume()
-
-

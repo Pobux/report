@@ -18,9 +18,16 @@ def get():
     except Exception as e:
         return "Failed\n"+str(e)
 
-    response = self.manage_response()
+    print("waiting for service to answer")
+    try:
+        response = messenger.manage_response()
+    except Exception as e:
+        #TODO add timeout exception
+        return "Service timeout"
+
     #TODO check status_code
-    return jsonify(response.json())
+    return str(response)
+    # return jsonify(response.json())
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
