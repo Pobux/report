@@ -12,13 +12,10 @@ class LogFactory():
         pass
 
     def create_log(self, log_name, behavior):
-        #return log_name + behavior
         try:
             log = self.instantiate_class(log_name)
             # log = self.create_behavior(behavior)
             return log
-
-
         except ImportError as e:
             print("Had import error with : %s".format(log_name))
             sys.exit(1)
