@@ -1,6 +1,4 @@
-#-*- coding: utf-8 -*-
-# Creation Date : 2018-11-03
-# Created by : Antoine LeBel
+
 import unittest
 import api
 

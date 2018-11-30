@@ -1,6 +1,4 @@
-#-*- coding: utf-8 -*-
-# Creation Date : 2018-11-03
-# Created by : Antoine LeBel
+
 import unittest
 from log import log_factory
 
@@ -26,9 +24,3 @@ class TestLogFactory(unittest.TestCase):
         lf = log_factory.LogFactory()
         _class = lf.instantiate_class("syslog")
         self.assertIsNotNone(_class)
-
-
-
-    #def test_log_Factory_Raise(self):
-        #lf = log_factory.LogFactory()
-        #self.assertRaises(SystemExit, lf.create_log, "nolog")

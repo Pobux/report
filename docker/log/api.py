@@ -19,7 +19,6 @@ def get():
     logs = log.fetch_log()
     return nice_json(logs)
 
-
 # Recuperer un log par sa date
 @app.route('/log/date', methods=['GET'])
 def api_id():

@@ -1,6 +1,4 @@
-#-*- coding: utf-8 -*-
-# Creation Date : 2018-11-03
-# Created by : Antoine LeBel
+
 import unittest
 from log import log
 
@@ -16,11 +14,13 @@ class TestLog(unittest.TestCase):
 
     def test_log_SysLog_fetch_log(self):
         lf = log.Syslog()
+        lf.setBehavior("text")
         db = lf.fetch_log()
         self.assertIsNotNone(db)
 
     def test_log_SysLog_fetch_log_2(self):
         lf = log.Syslog()
+        lf.setBehavior("text")
         db = lf.fetch_log()
         exp = {
                 "id": 1360031010,
@@ -32,8 +32,6 @@ class TestLog(unittest.TestCase):
               }
         result = db["2018-11-03"]
         self.assertEquals(exp, result)
-
-
 
 
     #def test_log_Factory_Raise(self):

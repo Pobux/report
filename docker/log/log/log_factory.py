@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-# Creation Date : 2018-11-03
-# Created by : Antoine LeBel
+
 import importlib
 import sys
 
@@ -14,7 +12,7 @@ class LogFactory():
     def create_log(self, log_name, behavior):
         try:
             log = self.instantiate_class(log_name)
-            # log = self.create_behavior(behavior)
+            log.setBehavior(behavior)
             return log
         except ImportError as e:
             print("Had import error with : %s".format(log_name))

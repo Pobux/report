@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-# Creation Date : 2018-10-29
-# Created by : Antoine LeBel
 
 from log import root_dir
 import json
@@ -15,6 +12,7 @@ class Log():
         self.host = host
         self.type = type
         self.logs = logs
+        self.behavior = ""
 
     def create_log(self):
         pass
@@ -22,16 +20,9 @@ class Log():
     def fetch_log(self):
         pass
 
+    def setBehavior(self, behavior):
+        self.behavior = behavior
 
-class Syslog(Log):
-    def create_log(self):
-        return "hello sys_log"
-
-    def fetch_log(self):
-        # soit on ouvre le fichier JSON existant, soit on charge le log avec read_syslog_to_json (à venir)
-        with open("{}/database/syslogtext.json".format(root_dir()), "r") as f:
-            db = json.load(f)
-        return db
 
     def read_syslog_to_json(self):
 
@@ -45,6 +36,7 @@ class Syslog(Log):
             while not re.search(pattern, line):
                 lign += line
                 line = entree.readline().strip()
+                # json.dumps(obj.__dict__)
             log_list.append(self.build_log(lign))
             lign = line
         return log_list
@@ -59,9 +51,24 @@ class Syslog(Log):
         return Log(date, user, time, le_type, log)
 
 
+class Syslog(Log):
+
+    def create_log(self):
+        return "hello sys_log"
+
+    def fetch_log(self):
+        db_name = "syslog" + self.behavior + ".json"
+        with open("{}/database/{}".format(root_dir(), db_name), "r") as f:
+            db = json.load(f)
+        return db
+
 class Statlog(Log):
+
     def create_log(self):
         return "hello stat_log"
 
     def fetch_log(self):
-        return "hello sys_log"
+        db_name = "statlog" + self.behavior + ".json"
+        with open("{}/database/{}".format(root_dir(), db_name), "r") as f:
+            db = json.load(f)
+        return db
