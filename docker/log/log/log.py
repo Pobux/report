@@ -1,4 +1,3 @@
-
 from log import root_dir
 import json
 import re
@@ -23,8 +22,7 @@ class Log():
     def setBehavior(self, behavior):
         self.behavior = behavior
 
-
-    def read_syslog_to_json(self):
+    def to_json(self):
 
         log_list = []
         os.system("cat /var/log/system.log > file.txt")
@@ -52,7 +50,6 @@ class Log():
 
 
 class Syslog(Log):
-
     def create_log(self):
         return "hello sys_log"
 
@@ -62,8 +59,8 @@ class Syslog(Log):
             db = json.load(f)
         return db
 
-class Statlog(Log):
 
+class Statlog(Log):
     def create_log(self):
         return "hello stat_log"
 
