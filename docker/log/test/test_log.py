@@ -1,4 +1,3 @@
-
 import unittest
 from log import log
 

@@ -58,7 +58,7 @@ class Sender():
             connection = pika.ConnectionParameters(host=self.host, port=self.port)
             return pika.BlockingConnection(connection)
         except Exception as e:
-            # TODO manage errors
+            print(e)
             print("something wrong with pika connection")
             sys.exit(1)
 

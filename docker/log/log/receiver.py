@@ -11,6 +11,7 @@ class Receiver():
         self.port = port
 
         self._get_ready()
+        self.router = router.Router()
         #TODO
         # self.router = router.Router()
 
@@ -30,6 +31,7 @@ class Receiver():
             return pika.BlockingConnection(connection)
         except Exception as e:
             # TODO manage errors
+            print(e)
             print("something wrong with pika connection")
             sys.exit(1)
 
@@ -38,10 +40,7 @@ class Receiver():
         self.channel.start_consuming()
 
     def on_request(self, ch, method, props, body):
-        #TODO
-        #CALL SERGE LOG SERVICE HERE
-        print("Received " + str(body))
-        result = str(body) + "aaaaaa"
+        router.route(body)
 
         #Return to sender on temporary queue (reply_to)
         ch.basic_publish(exchange="",
