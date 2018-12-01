@@ -3,17 +3,18 @@
 # Created by : Antoine LeBel
 import pika
 import sys
+import json
+from . import router
 
 class Receiver():
     def __init__(self, host, queue, port):
         self.host = host
         self.queue = queue
         self.port = port
+        print("connecting to " + host, queue, port)
 
         self._get_ready()
         self.router = router.Router()
-        #TODO
-        # self.router = router.Router()
 
     def _get_ready(self):
         self.connection = self._connection()
@@ -40,7 +41,13 @@ class Receiver():
         self.channel.start_consuming()
 
     def on_request(self, ch, method, props, body):
-        router.route(body)
+        try:
+            body = json.loads(body.decode("utf-8"))
+            result = self.router.route(body)
+        except Exception as e:
+            print("Could not deserialize")
+            print(e)
+            result = str(e)
 
         #Return to sender on temporary queue (reply_to)
         ch.basic_publish(exchange="",

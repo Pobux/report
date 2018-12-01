@@ -7,6 +7,8 @@ import codecs
 import logging
 import sys
 import socket
+import json
+import traceback
 
 class Sender():
     TIMEOUT = 10 #second
@@ -22,6 +24,11 @@ class Sender():
         self.corr_id = None
 
     def send(self, body):
+        try:
+            body = json.dumps(body)
+        except:
+            print("Could not serialize")
+
         result = self.channel.queue_declare(exclusive=True)
         self.callback_queue = result.method.queue
         self.channel.basic_consume(self.on_response,
@@ -58,6 +65,7 @@ class Sender():
             connection = pika.ConnectionParameters(host=self.host, port=self.port)
             return pika.BlockingConnection(connection)
         except Exception as e:
+            print(traceback.format_exc())
             print(e)
             print("something wrong with pika connection")
             sys.exit(1)

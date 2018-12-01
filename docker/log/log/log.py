@@ -1,9 +1,8 @@
-
-from log import root_dir
 import json
 import re
 import os
 
+ROOT = os.path.realpath(__file__ + '/../..')
 
 class Log():
     def __init__(self, date="", heure="", host="", type="", logs=""):
@@ -30,13 +29,14 @@ class Log():
         os.system("cat /var/log/system.log > file.txt")
         entree = open("file.txt", "r")
         lign = entree.readline().strip()
+
         while lign != "":
             pattern = r'[a-zA-Z]+.[0-9]{2}.[0-9]{2}:[0-9]{2}:[0-9]{2}.+'
             line = entree.readline().strip()
             while not re.search(pattern, line):
                 lign += line
                 line = entree.readline().strip()
-                # json.dumps(obj.__dict__)
+
             log_list.append(self.build_log(lign))
             lign = line
         return log_list
@@ -58,7 +58,7 @@ class Syslog(Log):
 
     def fetch_log(self):
         db_name = "syslog" + self.behavior + ".json"
-        with open("{}/database/{}".format(root_dir(), db_name), "r") as f:
+        with open("{}/database/{}".format(ROOT, db_name), "r") as f:
             db = json.load(f)
         return db
 
@@ -69,6 +69,6 @@ class Statlog(Log):
 
     def fetch_log(self):
         db_name = "statlog" + self.behavior + ".json"
-        with open("{}/database/{}".format(root_dir(), db_name), "r") as f:
+        with open("{}/database/{}".format(ROOT, db_name), "r") as f:
             db = json.load(f)
         return db

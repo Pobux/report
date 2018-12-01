@@ -2,6 +2,7 @@ from flask import Flask, render_template, jsonify, request
 from flask_cors import CORS
 import requests
 import datetime
+import json
 from app import sender
 
 app = Flask(__name__,
@@ -14,7 +15,7 @@ cors = CORS(app, resources={r"/*": {"origins": "*"}})
 def get():
     req = compose_request()
     print("Request :\n" + str(req))
-    messenger = sender.Sender("localhost", req["queue"], 5672)
+    messenger = sender.Sender("rabbit", req["queue"], 5672)
 
     try:
         print("Sending")
@@ -29,7 +30,13 @@ def get():
         return "Service timeout"
 
     #TODO check status_code
-    return str(response)
+    print(response)
+    print(type(response))
+    print(type(response.decode('utf-8')))
+    try:
+        return jsonify(json.loads(response.decode('utf-8')))
+    except:
+        return response.decode("utf-8")
     # return jsonify(response.json())
 
 @app.route('/', defaults={'path': ''})
@@ -48,14 +55,18 @@ def compose_request():
         "queue" : _get_queue_from_service(service),
         "init" : init,
         "method" : method,
-        "args" : request.args
+        # "args" : request.args
+        "args" : {
+            "type" : "syslog",
+            "behavior" : "text"
+        }
     }
 
     return req
 
 def _get_queue_from_service(service):
     #TODO validate queue here with config file or direct look up
-    return service.split("/")[0] + "_queue"
+    return service[1:].split("/")[0] + "_queue"
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8080)

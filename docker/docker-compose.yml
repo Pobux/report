@@ -5,11 +5,7 @@ services:
         ports:
             - "5000:8080"
         links:
-            - log:logservice
             - rabbit:rabbit
-
-    log:
-        build: log
 
     rabbit:
         hostname: rabbit
@@ -21,9 +17,26 @@ services:
             - "5672:5672"
         tty: true
         volumes:
-            # - rabbit:/var/lib/rabbitmq
             - ./rabbit/rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf
         command:  bash -c "sleep 10; rabbitmq-server;"
+
+    log:
+        build: log
+        links:
+            - rabbit:rabbit
+        depends_on:
+            - rabbit
+        command: >
+          sh -c "
+            while ! nc -z rabbit 5672;
+            do
+              echo sleeping;
+              sleep 1;
+            done;
+            echo Connected;
+            ls;
+            python3 main.py;
+          "
 
 #Persistent data, stored in docker/volumes locally
 volumes:

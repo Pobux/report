@@ -2,7 +2,7 @@
 # Creation Date : 2018-11-27
 # Created by : Antoine LeBel
 import json
-from log import log, log_factory, nice_json
+from log import log, log_factory
 import datetime
 import re
 import json
@@ -14,17 +14,8 @@ class Router():
     """
 
     def route(self, req):
-        try:
-            req_dict = json.loads(req)
-        except:
-            print("Could not route request")
-            #TODO build a standard error passing structure
-            return "Error"
-
-        return self._route(req)
-
-    def _route(self, req):
-        print("Looking for service : " + req.service)
+        print("Looking for service : " + req["service"])
+        print(req)
 
         if req["service"] == "/log":
             return self.get(req)
@@ -33,17 +24,17 @@ class Router():
             return self.api_id(self, req)
 
     def get(self, req):
-        log_name = req.args['type']
-        behavior = req.args['behavior']
+        log_name = req["args"]['type']
+        behavior = req["args"]['behavior']
 
         factory = log_factory.LogFactory()
         log = factory.create_log(log_name, behavior)
         logs = log.fetch_log()
-        return nice_json(logs)
+        return json.dumps(logs)
 
     def api_id(self, req):
-        log_name = req.args['type']
-        behavior = req.args['behavior']
+        log_name = req["args"]['type']
+        behavior = req["args"]["behavior"]
 
         if not self.is_log_type(log_name):
             return "Error: Incorrect log type, should be syslog or statlog"
@@ -55,8 +46,8 @@ class Router():
         log = factory.create_log(log_name, behavior)
         db = log.fetch_log()
 
-        if 'date' in req.args:
-            laDate = req.args['date']
+        if 'date' in req["args"]:
+            laDate = req["args"]['date']
             if not self.is_valid_date(laDate):
                 return "Error: Invalid date format, should be YYYY-MM-DD"
         else:
@@ -64,7 +55,7 @@ class Router():
         if laDate not in db:
             return "Error : date provide not found in the db."
 
-        return nice_json(db[laDate])
+        return json.dumps(db[laDate])
 
     def is_valid_date(une_date):
         try:
